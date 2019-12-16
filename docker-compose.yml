@@ -26,16 +26,12 @@ services:
     depends_on: 
       - hadoop
 
-  # data_extractor:
-  #   build: ./extractor
-  #   networks:
-  #     - hadoop_net
-  #   ports:
-  #     - "4040:4040"
-  #   depends_on: 
-  #     - hadoop
-  #     - data_fetcher 
-  #     - postgres
+  data_extractor:
+    build: ./extractor
+    depends_on: 
+      - hadoop
+      - data_fetcher 
+      - postgres
 
 networks:  
   hadoop_net:
