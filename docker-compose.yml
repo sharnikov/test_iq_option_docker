@@ -1,12 +1,11 @@
 version: '3.7'
 services:
   hadoop:
-    image: sequenceiq/hadoop-docker:2.7.1
-    networks:
-      - hadoop_net
+    image: sequenceiq/hadoop-docker:2.7.0
     ports: 
       - "50700:50700"
       - "9000:9000"
+      - "50010:50010"
 
   postgres:
     image: postgres:9.6
@@ -21,8 +20,6 @@ services:
 
   data_fetcher:
     build: ./fetcher
-    networks:
-      - hadoop_net
     depends_on: 
       - hadoop
 
@@ -38,5 +35,5 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.16.0.0/16   
+        - subnet: 172.16.0.0/16 
 

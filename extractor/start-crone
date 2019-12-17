@@ -1,0 +1,2 @@
+*/1 * * * * /start-spark.sh >/var/log/cron.log 2>&1
+#empty line
